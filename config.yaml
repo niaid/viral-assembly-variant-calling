@@ -1,0 +1,22 @@
+#names of sample directories containing the fastq directories
+samples: "samples.csv"
+
+## Uncomment the pipeline of choice
+pipeline: "mapping"
+#pipeline: "denovo"
+
+params:
+    adapters: "ref/adapters.fa"
+    primers: "ref/FDG_primers.illumina.fa" #optional. Leave as empty string if you don't have primer sequences
+    bbduk: "minlen=60 ktrim=r k=21 mink=9 hdist=2 hdist2=1 maq=14 qtrim=r trimq=10 maxns=0 tbo tpe ftm=5"
+    ref: "ref/HIV_B.K03455.HXB2.fasta"
+    #for consiter (mapper and consensus builder) indicate the maximum number of iterations (-i) and minimum coverage (-c)
+    consiter: "-i 5 -c 100 -p 1 -xmx 50" #add the "--noindel" flag if you want to keep the same coordinates as the reference
+
+threads:
+    bbduk: 16
+    spades_ec: 16
+    consiter: 16
+    spades_assemble: 16
+    ragtag: 16
+    cliquesnv: 16

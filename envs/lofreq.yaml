@@ -1,0 +1,7 @@
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+  - r
+dependencies:
+ - lofreq=2.1.5

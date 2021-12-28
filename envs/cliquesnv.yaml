@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+  - r
+dependencies:
+ - cliquesnv=2.0.2-0
+ - bamtools=2.4.0
