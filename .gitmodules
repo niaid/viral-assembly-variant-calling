@@ -1,0 +1,3 @@
+[submodule "ConsIter"]
+	path = ConsIter
+	url = https://github.com/TheDBStern/ConsIter
