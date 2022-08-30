@@ -22,6 +22,7 @@ rule consiter:
   shell:
       """
       export PYTHONUNBUFFERED=True
+      # cleanup ref
       rm -rf data/{wildcards.sample}/ref
       mkdir -p data/{wildcards.sample}/ref
       cp {input.ref} data/{wildcards.sample}/ref/
@@ -36,6 +37,4 @@ rule consiter:
               -2 {input.in2} \
               {params.consiter} \
               > {log} 2>&1
-      # cleanup ref
-      rm -rf data/{wildcards.sample}/ref
       """
