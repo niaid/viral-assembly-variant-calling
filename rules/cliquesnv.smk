@@ -6,6 +6,8 @@ rule cliquesnv:
     "data/{sample}/{sample}.bt2.rmdup.bam"
   output:
     "data/{sample}/{sample}.haplotypes.cliquesnv.fasta"
+  params:
+    cliquesnv=config["params"]["cliquesnv"]
   log:
     "data/{sample}/logs/cliquesnv.log"
   threads: config["threads"]["cliquesnv"]
@@ -24,10 +26,10 @@ rule cliquesnv:
                 -in $i \
                 -fdf extended \
                 -outDir data/{wildcards.sample}/cliquesnv_out \
-                > {log} 2>&1
-      mv data/{wildcards.sample}/cliquesnv_out/*.fasta data/{wildcards.sample}/
-      rm -rf data/{wildcards.sample}/cliquesnv_out/cliquesnv_out
+                {params.cliquesnv} \
+                >> {log} 2>&1
       done
 
-      cat data/{wildcards.sample}/{wildcards.sample}.bt2*.fasta > {output}
+      cat data/{wildcards.sample}/cliquesnv_out/{wildcards.sample}.bt2*.fasta > {output}
+      rm data/{wildcards.sample}/cliquesnv_out/{wildcards.sample}.bt2*.fasta
       """
