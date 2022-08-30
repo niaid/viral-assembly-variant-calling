@@ -11,6 +11,7 @@ rule consiter:
     out1="data/{sample}/{sample}.consensus.fa",
     out2="data/{sample}/{sample}.bt2.rmdup.bam"
   params:
+    srcdir=workflow.basedir,
     consiter=config["params"]["consiter"]
   threads: config["threads"]["consiter"]
   conda:
@@ -20,8 +21,13 @@ rule consiter:
 
   shell:
       """
-      python ConsIter/ConsIter.py \
-              -ref {input.ref} \
+      export PYTHONUNBUFFERED=True
+      mkdir -p data/{wildcards.sample}/ref
+      cp {input.ref} data/{wildcards.sample}/ref/
+      sampleref="data/{wildcards.sample}/ref/$(basename {input.ref})"
+
+      python {params.srcdir}/ConsIter/ConsIter.py \
+              -ref ${{sampleref}} \
               -t {threads} \
               -n {wildcards.sample} \
               -o data/{wildcards.sample} \
