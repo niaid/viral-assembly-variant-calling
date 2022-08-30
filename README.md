@@ -41,6 +41,10 @@ Edit the `samples.csv` file with the names of the samples in the `data` director
 
 Run: `snakemake --cores <ncores> --use-conda all` with <ncores> replaced with your desired number of CPU cores.  
 
+### Resources
+
+Using the default parameters in [config.yaml](config.yaml), the pipeline may use up to 50Gb of memory.  Depending on the size and quality of your input files, SPAdes error correction and/or assembly may use more.
+
 ### Dependencies  
 Running this pipeline requires:
 - [Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html)  
