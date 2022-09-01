@@ -12,7 +12,9 @@ rule lofreq:
     "../envs/lofreq.yaml"
   shell:
       """
-      mkdir data/{wildcards.sample}/lofreq || true
+      ## remove bc lofreq github reports problems otherwise
+      rm -rf data/{wildcards.sample}/lofreq
+      mkdir -p data/{wildcards.sample}/lofreq || true
 
       samtools view \
             -b \

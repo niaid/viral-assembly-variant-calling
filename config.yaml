@@ -12,6 +12,7 @@ params:
     ref: "ref/HIV_B.K03455.HXB2.fasta"
     #for consiter (mapper and consensus builder) indicate the maximum number of iterations (-i) and minimum coverage (-c)
     consiter: "-i 5 -c 100 -p 1 -xmx 50" #add the "--noindel" flag if you want to keep the same coordinates as the reference
+    cliquesnv: "-Xmx16g" ## memory passed to jvm for cliquesnv - leave empty string to use default of 1g
 
 threads:
     bbduk: 16
