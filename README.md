@@ -84,7 +84,7 @@ By using this software, you agree this software is to be used for research purpo
 
 Primary author(s): David B. Stern
 
-Organizational contact information: david.stern AT nih.gov
+Organizational contact information: bioinformatics AT niaid.nih.gov
 
 Date of release: 12/28/2021
 
