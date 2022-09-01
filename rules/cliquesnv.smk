@@ -31,5 +31,5 @@ rule cliquesnv:
       done
 
       cat data/{wildcards.sample}/cliquesnv_out/{wildcards.sample}.bt2*.fasta > {output}
-      rm data/{wildcards.sample}/cliquesnv_out/{wildcards.sample}.bt2*.fasta
+      mv data/{wildcards.sample}/cliquesnv_out/*.fasta data/{wildcards.sample}/
       """
