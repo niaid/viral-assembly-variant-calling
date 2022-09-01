@@ -60,7 +60,7 @@ All other required bioinformatic tools will be installed in isolated conda envir
 - [RagTag v2.0.1](https://github.com/malonge/RagTag)  
 - [Minimap2](https://github.com/lh3/minimap2)  
 - [Biopython v1.79](https://biopython.org/)  
-- [Spades v3.15.3](https://github.com/ablab/spades)  
+- [Spades v3.15.5](https://github.com/ablab/spades)  
 - [LoFreq v2.1.5](https://csb5.github.io/lofreq/)  
 - [CliqueSNV v2.0.2](https://github.com/vtsyvina/CliqueSNV)  
 - [Bamtools v2.4.0](https://bioinformatics.readthedocs.io/en/latest/bamtools/)  
@@ -73,6 +73,10 @@ Output files are in each sample directory under `data`.
 `*.haplotypes.cliquesnv.fasta` -- haplotypes (and frequencies) for all references sequences reconstructed using cliqueSNV  
     `*REF*.fasta` -- haplotypes reconstructed for each reference sequence in the reference fasta file  
 `*.lofreq.vcf` -- within-sample variants (iSNVs) with frequencies determined using LoFreq
+
+#### FAQ
+1. Why does the consensus have Ns?  
+The ConsIter module masks consensus with Ns if the coverage goes below a certain threshold.  In the example [config.yaml](config.yaml), this threshold is set to 100x (see comments in the config for other parameters and the [ConsIter](https://github.com/TheDBStern/ConsIter) repo for more info).
 
 ### Terms of Use
 
